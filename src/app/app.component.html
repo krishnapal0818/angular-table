@@ -1,0 +1,27 @@
+
+
+<!-- <router-outlet></router-outlet> -->
+<div>
+  <input type="text" placeholder="Seacrh by Car" [(ngModel)]="searchText" (keyup)="onSearchText($event)"  /> <br />
+  <table border="1">
+    <thead>
+      <th> S.No.</th>
+      <th>Name</th>
+      <th> Model</th>
+      <th>Type</th>
+      <th> Price </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredList; let i= index">
+          <td>{{i+1}}</td>
+          <td>{{item?.make}}</td>
+          <td>{{item?.model}}</td>
+          <td>{{item?.type}}</td>
+          <td>{{getPrice(item?.id)}}</td>
+      </tr>
+      <tr *ngIf="!filteredList.length">
+          No Record Found
+      </tr>
+    </tbody>
+  </table>
+</div>
